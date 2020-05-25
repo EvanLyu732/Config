@@ -1,1 +1,1 @@
-# Config
+# Configuration for vim, zsh and ranger
