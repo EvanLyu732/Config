@@ -1,1 +1,1 @@
-# Configuration for vim, zsh and ranger
+Current use: vim zsh ranger skhd yabai
