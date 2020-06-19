@@ -15,3 +15,5 @@ Switch from mac os to ubuntu.
 - [x] Atom
 - [x] compton
 - [x] zathura
+
+planning update the config on 02/07/2020
