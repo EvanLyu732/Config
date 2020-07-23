@@ -17,4 +17,3 @@ Switch from mac os to ubuntu.
 - [x] ranger
 - [x] zathura
 
-planning update the config on 02/07/2020
