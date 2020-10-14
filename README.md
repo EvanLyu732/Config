@@ -11,7 +11,7 @@ Switch from mac os to ubuntu.
 ### Furthre step:
 - [ ] polybar 
 - [ ] i3  
-- [ ] vim 
+- [x] vim 
 - [ ] compton
 - [ ] ranger
 - [ ] zathura
