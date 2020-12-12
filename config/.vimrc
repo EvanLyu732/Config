@@ -1,8 +1,8 @@
-"" version: 0.2
-"" time: 2020.11.24
+"author: EvanLyu732
+"version: 0.2
 
 set nocompatible              
-set encoding=utf-8
+set encoding=UTF-8
 let mapleader =" "
 
 "use vim defaluts"
@@ -28,6 +28,16 @@ set undofile
 set undodir=~/.vim/undodir
 set hidden
 set backspace=indent,eol,start
+"reativenumber in insert mode; absolute number in insert mode
+augroup toggle_relative_number
+autocmd InsertEnter * :setlocal norelativenumber 
+autocmd InsertLeave * :setlocal relativenumber 
+
+"folding setting
+set foldenable 
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=manual
 
 setlocal path=.,**
 
@@ -35,74 +45,90 @@ setlocal path=.,**
 "set cursorline
 "set cursorcolumn
 
-"highlight comment ctermfg=green
+"highlight Comment ctermfg=green
 syntax on
 
 execute pathogen#infect()
 filetype plugin indent on
-" set the runtime path to include vundle and initialize
-set rtp+=~/.vim/bundle/vundle.vim
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
 
-source $home/.vim/bundle/here/coc.vim
+source $HOME/.vim/bundle/here/coc.vim
 
-"plug begin
+"Plug begin
 call vundle#begin('~/.vim/bundle/here')
-plugin 'jreybert/vimagit'
-plugin 'scrooloose/nerdtree'
-plugin 'vim-airline/vim-airline-themes'
-plugin 'majutsushi/tagbar'
-plugin 'vim-airline/vim-airline'
-plugin 'lervag/vimtex'
-plugin 'gmarik/vundle.vim'
-plugin 'tpope/vim-surround'
-plugin 'puremourning/vimspector'
-plugin 'ryanoasis/vim-devicons'
-plugin 'tpope/vim-fugitive'
-
+Plugin 'jreybert/vimagit'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-airline/vim-airline'
+Plugin 'lervag/vimtex'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'puremourning/vimspector'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'tpope/vim-fugitive'
+Plugin 'liuchengxu/vim-which-key'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'wellle/targets.vim'
+"ALE
+"zen mode
+Plugin 'junegunn/goyo.vim'
+"start
+Plugin 'mhinz/vim-startify'
 "coc
-plugin 'neoclide/coc.nvim'
+Plugin 'neoclide/coc.nvim'
 
 "fzf
-plugin 'junegunn/fzf', {'do':{ -> fzf#install() }}
-plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf', {'do':{ -> fzf#install() }}
+Plugin 'junegunn/fzf.vim'
 
 "colorscheme
-plugin 'alessandroyorba/alduin'
-plugin 'tomasiser/vim-code-dark'
+Plugin 'alessandroyorba/alduin'
+Plugin 'tomasiser/vim-code-dark'
 call vundle#end()
-"plug end
+"Plug end
 
 colorscheme codedark
 
 
-"remap esc key to jh
-inoremap  bn <esc>
-inoremap <leader>s <c-c>:w<cr>
-inoremap <c-e> <c-o>$
-inoremap <c-a> <c-o>0
+"Remap ESC key to jh
+inoremap  bn <Esc>
+inoremap <leader>s <C-c>:w<cr>
+inoremap <C-e> <C-o>$
+inoremap <C-a> <C-o>0
 
+",/ for nohlsearch
+nmap <silent> ,/ :nohlsearch<CR>
 noremap <leader>q :wq<cr>
 noremap <leader>w :w<cr>
-noremap <leader>n :nerdtreetoggle<cr>
-noremap <leader>t :tagbartoggle<cr>
-noremap <leader>r :nerdtreefind<cr>
+noremap <leader>n :NERDTreeToggle<CR>
+noremap <leader>t :TagbarToggle<CR>
+noremap <leader>r :NERDTreeFind<cr>
+noremap <leader>g :Goyo<CR>
 noremap n nzz
-noremap n nzz
-nnoremap <c-h> <c-w><c-h>
-nnoremap <c-j> <c-w><c-j>
-nnoremap <c-k> <c-w><c-k>
-nnoremap <c-l> <c-w><c-l>
+noremap N Nzz
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
 
-vnoremap . :normal.<cr>
+"Jump back to the last change buffer
+nnoremap <C-b> <C-^> 
+inoremap <C-b> <esc><C-^>
+"use ` as highlightcurrent index`
+nnoremap `     vey/<C-r>0<cr>
 
-let g:livepreview_previewer = 'pdf expert'
+vnoremap . :normal.<CR>
+
+let g:livepreview_previewer = 'PDF Expert'
 let g:netrw_browse_split=4
 let g:netrw_winsize=20
 let g:airline_theme='codedark'
 
 
-let &t_si = "\<esc>]50;cursorshape=1\x7"
-let &t_sr = "\<esc>]50;cursorshape=2\x7"
-let &t_ei = "\<esc>]50;cursorshape=0\x7"
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 
